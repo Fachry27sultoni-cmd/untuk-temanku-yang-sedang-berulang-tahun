@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Untuk Amira</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f7f3ef;
+      color: #292524;
+      font-family: "DM Sans", sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* INTRO */
+
+    .intro {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #292524;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      transition: .8s ease;
+    }
+
+    .intro.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .intro-content {
+      padding: 30px;
+    }
+
+    .intro-small {
+      font-size: 12px;
+      color: #cfc8c2;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .intro h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(55px, 14vw, 95px);
+      margin-bottom: 30px;
+    }
+
+    .open-btn {
+      padding: 14px 28px;
+      border: 0;
+      border-radius: 50px;
+      background: #fff;
+      color: #292524;
+      cursor: pointer;
+      font-size: 14px;
+      transition: .25s;
+    }
+
+    .open-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      animation: fadeUp 1s ease;
+    }
+
+    .eyebrow {
+      color: #ae6f83;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 11px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(65px, 16vw, 140px);
+      line-height: .82;
+      letter-spacing: -6px;
+    }
+
+    .hero h1 span {
+      color: #c77d92;
+    }
+
+    .hero-text {
+      max-width: 500px;
+      margin: 35px auto 0;
+      color: #78716c;
+      line-height: 1.8;
+    }
+
+    .scroll {
+      margin-top: 55px;
+      color: #aaa29c;
+      font-size: 12px;
+      animation: bounce 2s infinite;
+    }
+
+    /* COMMON */
+
+    section {
+      padding: 110px 20px;
+    }
+
+    .inner {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .label {
+      color: #ae6f83;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(38px, 8vw, 60px);
+      line-height: 1.1;
+      margin-bottom: 35px;
+    }
+
+    /* LETTER */
+
+    .letter {
+      background: #fffdf9;
+    }
+
+    .letter-card {
+      background: white;
+      border: 1px solid #eee6de;
+      border-radius: 25px;
+      padding: 45px;
+      box-shadow: 0 20px 60px rgba(41,37,36,.07);
+    }
+
+    .letter-card p {
+      color: #625b56;
+      line-height: 2;
+      margin-bottom: 22px;
+      font-size: 16px;
+    }
+
+    .letter-card p:first-child {
+      color: #292524;
+      font-weight: 600;
+    }
+
+    .signature {
+      margin-top: 35px;
+      font-family: "Playfair Display", serif;
+      font-size: 24px;
+      color: #9d5f73;
+    }
+
+    /* QUOTES */
+
+    .quote-section {
+      background: #292524;
+      color: white;
+      text-align: center;
+    }
+
+    .quote-section .label {
+      color: #dba1b2;
+    }
+
+    .quote {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(28px, 6vw, 48px);
+      line-height: 1.35;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .quote small {
+      display: block;
+      margin-top: 30px;
+      color: #a8a29e;
+      font-family: "DM Sans", sans-serif;
+      font-size: 12px;
+    }
+
+    /* REASONS */
+
+    .reasons {
+      background: #f7f3ef;
+    }
+
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .reason {
+      background: white;
+      border: 1px solid #eee6de;
+      border-radius: 20px;
+      padding: 28px 20px;
+      min-height: 160px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .reason-number {
+      color: #c77d92;
+      font-size: 12px;
+    }
+
+    .reason-text {
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+      line-height: 1.3;
+    }
+
+    /* SURPRISE */
+
+    .surprise {
+      text-align: center;
+      padding-bottom: 130px;
+    }
+
+    .surprise-card {
+      background: #fff;
+      border-radius: 25px;
+      padding: 55px 25px;
+      box-shadow: 0 20px 60px rgba(41,37,36,.08);
+    }
+
+    .surprise-card h2 {
+      font-family: "Playfair Display", serif;
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .surprise-card p {
+      max-width: 500px;
+      margin: auto;
+      color: #78716c;
+      line-height: 1.8;
+    }
+
+    .surprise-btn {
+      margin-top: 28px;
+      padding: 14px 27px;
+      border: none;
+      border-radius: 50px;
+      background: #292524;
+      color: white;
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .surprise-btn:hover {
+      transform: translateY(-3px);
+      background: #44403c;
+    }
+
+    #hidden {
+      display: none;
+      max-width: 500px;
+      margin: 28px auto 0;
+      padding: 25px;
+      border-radius: 18px;
+      background: #faf0f3;
+      color: #5f5551;
+      line-height: 1.8;
+      animation: fadeUp .5s ease;
+    }
+
+    footer {
+      padding: 25px;
+      text-align: center;
+      color: #aaa29c;
+      font-size: 11px;
+    }
+
+    /* CONFETTI */
+
+    .confetti {
+      position: fixed;
+      top: -20px;
+      width: 8px;
+      height: 13px;
+      z-index: 9998;
+      animation: fall linear forwards;
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(8px);
+      }
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(720deg);
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      section {
+        padding: 80px 18px;
+      }
+
+      .letter-card {
+        padding: 30px 22px;
+      }
+
+      .reason-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .reason {
+        min-height: 130px;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- INTRO -->
+
+  <div class="intro" id="intro">
+
+    <div class="intro-content">
+
+      <div class="intro-small">
+        ada sesuatu buat kamu
+      </div>
+
+      <h1>Amira.</h1>
+
+      <button class="open-btn" onclick="openPage()">
+        buka
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        hari ini
+      </div>
+
+      <h1>
+        Happy<br>
+        <span>Birthday.</span>
+      </h1>
+
+      <p class="hero-text">
+        Nggak perlu panjang-panjang di awal.
+        Yang penting satu dulu:
+        selamat ulang tahun, Amira.
+      </p>
+
+      <div class="scroll">
+        ↓ lanjut
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- LETTER -->
+
+  <section class="letter">
+
+    <div class="inner">
+
+      <div class="label">
+        sedikit tulisan
+      </div>
+
+      <h2 class="title">
+        Buat Amira.
+      </h2>
+
+      <div class="letter-card">
+
+        <p>
+          Selamat ulang tahun ya, Mir.
+        </p>
+
+        <p>
+          Semoga di umur yang baru ini semuanya berjalan
+          lebih baik dari sebelumnya. Semoga sehat terus,
+          urusan lu dipermudah, dan apa pun yang lagi
+          lu perjuangin bisa pelan-pelan tercapai.
+        </p>
+
+        <p>
+          Gue nggak mau bikin ucapan yang terlalu formal
+          atau terlalu puitis karena aneh juga kalau tiba-tiba
+          jadi penyair wkwk.
+        </p>
+
+        <p>
+          Jadi intinya cuma satu: semoga lu bahagia.
+          Bukan cuma hari ini, tapi juga di hari-hari biasa
+          yang kadang nggak ada apa-apanya.
+        </p>
+
+        <p>
+          Kalau tahun ini ada hal yang nggak sesuai rencana,
+          semoga lu tetap bisa jalan terus. Dan kalau ada
+          hal baik yang datang, semoga lu bisa menikmatinya
+          tanpa terlalu banyak mikir.
+        </p>
+
+        <p>
+          Pokoknya nikmatin hari lu.
+          Makan yang enak, ketawa yang banyak,
+          dan jangan lupa bersyukur udah sampai sejauh ini.
+        </p>
+
+        <div class="signature">
+          — dari temen lu
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- QUOTE -->
+
+  <section class="quote-section">
+
+    <div class="inner">
+
+      <div class="label">
+        satu kalimat
+      </div>
+
+      <div class="quote">
+        "Semoga tahun ini punya lebih banyak cerita
+        yang nanti bakal lu senengin buat diingat."
+        
+        <small>
+          dan semoga sebagian ceritanya nggak memalukan.
+        </small>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- REASONS -->
+
+  <section class="reasons">
+
+    <div class="inner">
+
+      <div class="label">
+        karena...
+      </div>
+
+      <h2 class="title">
+        Hari ini layak dirayakan.
+      </h2>
+
+      <div class="reason-grid">
+
+        <div class="reason">
+          <div class="reason-number">01</div>
+          <div class="reason-text">
+            Umur bertambah.
+          </div>
+        </div>
+
+        <div class="reason">
+          <div class="reason-number">02</div>
+          <div class="reason-text">
+            Cerita baru dimulai.
+          </div>
+        </div>
+
+        <div class="reason">
+          <div class="reason-number">03</div>
+          <div class="reason-text">
+            Dan lu masih di sini.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SURPRISE -->
+
+  <section class="surprise">
+
+    <div class="inner">
+
+      <div class="surprise-card">
+
+        <div class="label">
+          hampir selesai
+        </div>
+
+        <h2>
+          Satu lagi.
+        </h2>
+
+        <p>
+          Kalau udah sampai sini berarti lumayan niat
+          juga lu buka semuanya.
+        </p>
+
+        <button
+          class="surprise-btn"
+          onclick="surprise()"
+        >
+          buka yang terakhir
+        </button>
+
+        <div id="hidden">
+
+          Oke, sekarang serius sebentar.
+
+          <br><br>
+
+          Gue harap di umur yang baru ini
+          lu ketemu lebih banyak hal yang bikin
+          lu senang, lebih banyak orang yang tulus,
+          dan lebih banyak alasan buat bilang
+          "ternyata hidup gue nggak seburuk itu."
+
+          <br><br>
+
+          Jangan berubah jadi orang asing ya.
+
+          <br><br>
+
+          Happy birthday, Amira. 🤍
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    dibuat dengan niat. lumayan.
+  </footer>
+
+
+  <script>
+
+    function openPage() {
+
+      document
+        .getElementById("intro")
+        .classList.add("hide");
+
+    }
+
+
+    function surprise() {
+
+      document
+        .getElementById("hidden")
+        .style.display = "block";
+
+      const colors = [
+        "#c77d92",
+        "#e7a6ba",
+        "#d6b5c4",
+        "#292524",
+        "#f0d4dc"
+      ];
+
+      for (let i = 0; i < 75; i++) {
+
+        const piece =
+          document.createElement("div");
+
+        piece.className = "confetti";
+
+        piece.style.background =
+          colors[
+            Math.floor(
+              Math.random() * colors.length
+            )
+          ];
+
+        piece.style.left =
+          Math.random() * 100 + "vw";
+
+        piece.style.animationDuration =
+          2 + Math.random() * 2 + "s";
+
+        piece.style.animationDelay =
+          Math.random() * .5 + "s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+          piece.remove();
+        }, 4500);
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
